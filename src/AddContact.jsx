@@ -22,31 +22,39 @@ const AddContact = ({ addNewContact }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <p>
-        <label htmlFor="newContactName">Ime kontakta</label>
+    <form onSubmit={handleSubmit} className="p-3">
+      <div className="mb-3">
+        <label htmlFor="name" className="form-label">
+          Ime kontakta
+        </label>
         <input
           type="text"
           id="name"
+          className="form-control"
           onChange={handleInputChange}
           value={newContact.name}
           required
           placeholder="Pero Perić"
         />
-      </p>
+      </div>
 
-      <p>
-        <label htmlFor="newContactPhone">Telefon kontakta</label>
+      <div className="mb-3">
+        <label htmlFor="phone" className="form-label">
+          Telefon kontakta
+        </label>
         <input
           type="number"
           id="phone"
+          className="form-control"
           onChange={handleInputChange}
           value={newContact.phone}
           required
           placeholder="098 111 111"
         />
-      </p>
-      <button type="submit">Dodaj kontakt</button>
+      </div>
+      <button type="submit" className="btn btn-primary">
+        Dodaj kontakt
+      </button>
     </form>
   );
 };

@@ -1,22 +1,36 @@
 import React from "react";
 
-const ContactList = ({ contacts }) => {
+const ContactList = ({ contacts, onDeleteContact }) => {
+  const handleClick = (e) => {
+    onDeleteContact(e.target.id);
+  };
+
   return (
-    <div>
-      <h2>Contact List</h2>
+    <div className="p-3 border">
+      <h2 className="text-primary">Imenik</h2>
       {contacts.length > 0 && (
-        <table style={{ border: "1px solid black" }}>
-          <thead>
+        <table className="table table-striped">
+          <thead className="bg-primary text-white">
             <tr>
-              <th style={{ border: "1px solid black" }}>Name</th>
-              <th style={{ border: "1px solid black" }}>Phone number</th>
+              <th>Ime</th>
+              <th>Telefonski broj</th>
+              <th>Akcije</th>
             </tr>
           </thead>
           <tbody>
             {contacts.map((contact) => (
               <tr key={contact.id}>
-                <td style={{ border: "1px solid black" }}>{contact.name}</td>
-                <td style={{ border: "1px solid black" }}>{contact.phone}</td>
+                <td>{contact.name}</td>
+                <td>{contact.phone}</td>
+                <td>
+                  <button
+                    className="btn btn-danger"
+                    onClick={handleClick}
+                    id={contact.id}
+                  >
+                    Obriši kontakt
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
