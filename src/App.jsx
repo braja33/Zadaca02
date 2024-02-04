@@ -10,6 +10,10 @@ const App = () => {
     setContact([...contacts, contact]);
   };
 
+  const removeContact = (contactId) => {
+    setContact(contacts.filter((contact) => contact.id != contactId));
+  };
+
   return (
     <>
       <AddContact addNewContact={addNewContact} />

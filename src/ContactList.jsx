@@ -1,6 +1,16 @@
 import React from "react";
 
 const ContactList = ({ contacts }) => {
+  console.log("drugi objekt", contacts[2]);
+
+  const handleClick = (e) => {
+    if (window.confirm("Jesi li siguran da želiš izbrisati ovaj kontakt?")) {
+      contacts = contacts.filter(function (element) {
+        return element.id != e.target.id;
+      });
+    }
+  };
+
   return (
     <div>
       <h2>Contact List</h2>
@@ -17,6 +27,11 @@ const ContactList = ({ contacts }) => {
               <tr key={contact.id}>
                 <td style={{ border: "1px solid black" }}>{contact.name}</td>
                 <td style={{ border: "1px solid black" }}>{contact.phone}</td>
+                <td>
+                  <button onClick={handleClick} id={contact.id}>
+                    Obriši kontakt
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
