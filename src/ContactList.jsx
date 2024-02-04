@@ -1,14 +1,10 @@
 import React from "react";
 
-const ContactList = ({ contacts }) => {
+const ContactList = ({ contacts, onDeleteContact }) => {
   console.log("drugi objekt", contacts[2]);
 
   const handleClick = (e) => {
-    if (window.confirm("Jesi li siguran da želiš izbrisati ovaj kontakt?")) {
-      contacts = contacts.filter(function (element) {
-        return element.id != e.target.id;
-      });
-    }
+    onDeleteContact(e.target.id);
   };
 
   return (

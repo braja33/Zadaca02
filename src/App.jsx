@@ -11,13 +11,19 @@ const App = () => {
   };
 
   const removeContact = (contactId) => {
-    setContact(contacts.filter((contact) => contact.id != contactId));
+    let contactToDelete = contacts.find((contact) => contact.id === contactId);
+    if (
+      window.confirm(
+        `Jeste li sigurni da želite obrisati ${contactToDelete.name} iz imenika?`
+      )
+    )
+      setContact(contacts.filter((contact) => contact.id != contactId));
   };
 
   return (
     <>
       <AddContact addNewContact={addNewContact} />
-      <ContactList contacts={contacts} />
+      <ContactList contacts={contacts} onDeleteContact={removeContact} />
     </>
   );
 };
