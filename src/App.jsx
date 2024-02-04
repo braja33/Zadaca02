@@ -1,7 +1,9 @@
 import React from "react";
 import { useState } from "react";
+
 import AddContact from "./AddContact";
 import ContactList from "./ContactList";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
   const [contacts, setContact] = useState([]);
