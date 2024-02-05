@@ -46,8 +46,8 @@ const AddContact = ({ addNewContact }) => {
           type="number"
           id="phone"
           className="form-control"
-          onChange={handleInputChange}
           value={newContact.phone}
+          onChange={handleInputChange}
           required
           placeholder="098 111 111"
         />
